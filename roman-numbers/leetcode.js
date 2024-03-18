@@ -1,24 +1,32 @@
-function RomanNumberConverted(x) {
-  const I = 1;
-  const IV = 4;
-  const V = 5;
-  const IX = 9;
-  const X = 10;
-  const L = 50;
-  const C = 100;
-  const D = 500;
-  const M = 1000;
-
-  if (!x === ("I" | "V" | "X" | "L" | "C" | "D" | "M")) { q
-    console.log("insira um número romano válido");
-  } else {
-
-  switch(x) {
-    case x = "i":
-    console.log(I)
+function RomanNumberConverted(roman) {
+  const romanNumerals = {
+    I: 1,
+    IV: 4,
+    V: 5,
+    IX: 9,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
   }
-  
+
+  let result = 0;
+
+  for (let i = 0; i < roman.length; i++) {
+    let currentNumeral = roman[i];
+    let currentValue = romanNumerals[currentNumeral];
+    let nextNumeral = roman[i + 1];
+    let nextValue = romanNumerals[nextNumeral];
+
+    if (nextValue > currentValue) {
+      result += nextNumeral - currentValue;
+      i++;
+    } else {
+      result += currentValue;
+    }
   }
+  return result;
 }
 
-RomanNumberConverted("i"); // LVIII
+console.log(RomanNumberConverted("XXXIII"));
