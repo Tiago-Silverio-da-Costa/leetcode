@@ -1,4 +1,4 @@
-function isPalindrome(x) {
+function isPalindrome(x: number): boolean {
   const numberTostring = x.toString()
 
   const reversedNumberToString = numberTostring.split('').reverse().join('');
